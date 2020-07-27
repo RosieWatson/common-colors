@@ -15,5 +15,8 @@
     "styling"
   ],
   "author": "Rosie Watson",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
 }

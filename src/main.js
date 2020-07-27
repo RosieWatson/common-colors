@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+const chalk = require('chalk')
 const fs = require('fs')
 
 const hexValueRegex = /\#[a-z, A-Z, 0-9]+\;/g;
@@ -23,8 +24,8 @@ function start() {
     const mostFreqColor = getMostFrequentColor(colorFreqs)
 
     if (mostFreqColor.length === 0) console.log('You don\'t seem to be using any HEX colors in your repo')
-    else if (mostFreqColor.length === 1) console.log('Your most frequently used color is: ', mostFreqColor)
-    else if (mostFreqColor.length > 1) console.log('Your most frequently used colors are: ', mostFreqColor)
+    else if (mostFreqColor.length === 1) console.log('Your most frequently used color is:', chalk.hex(mostFreqColor)(mostFreqColor))
+    else if (mostFreqColor.length > 1) mutliColorMessage(mostFreqColor)
   })
 }
 
@@ -50,7 +51,14 @@ function getMostFrequentColor(frequencies) {
 }
 
 function getKeyByValue(object, value) {
-  return Object.keys(object).filter(key => object[key] === value);
+  return Object.keys(object).filter(key => object[key] === value)
+}
+
+function mutliColorMessage(colors) {
+  console.log('Your most frequently used colors are:')
+  colors.forEach(color => {
+    console.log(chalk.hex(color)(color))
+  })
 }
 
 start()
