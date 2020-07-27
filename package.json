@@ -1,10 +1,13 @@
 {
   "name": "common-colors",
   "version": "1.0.0",
-  "description": "A package that analyses your color usage",
+  "description": "A package that analyses your color usage in styling files",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "most-common-color": "src/main.js"
   },
   "keywords": [
     "color",
