@@ -22,7 +22,9 @@ function start() {
     const colorFreqs = getColorFrequency(colors)
     const mostFreqColor = getMostFrequentColor(colorFreqs)
 
-    console.log('Your most frequently used color is: ', mostFreqColor)
+    if (mostFreqColor.length === 0) console.log('You don\'t seem to be using any HEX colors in your repo')
+    else if (mostFreqColor.length === 1) console.log('Your most frequently used color is: ', mostFreqColor)
+    else if (mostFreqColor.length > 1) console.log('Your most frequently used colors are: ', mostFreqColor)
   })
 }
 
@@ -34,11 +36,8 @@ function getColorFrequency(colors) {
   const frequencies = {}
 
   colors.forEach(color => {
-    if(!frequencies[color]) {
-      frequencies[color] = 1
-    } else {
-      ++frequencies[color]
-    }
+    if(!frequencies[color]) frequencies[color] = 1
+    else ++frequencies[color]
   })
 
   return frequencies
@@ -51,12 +50,7 @@ function getMostFrequentColor(frequencies) {
 }
 
 function getKeyByValue(object, value) {
-  return Object.keys(object).find(key => object[key] === value);
+  return Object.keys(object).filter(key => object[key] === value);
 }
 
 start()
-
-// Need to deal with no colours
-// Need to deal with one highest
-// Need to deal with many highest
-// Would be nice to say if everything is used once
