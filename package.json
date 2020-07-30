@@ -4,7 +4,8 @@
   "description": "A package that analyses your color usage in styling files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config ./jest.config.json --coverage",
+    "test-watch": "jest --config ./jest.config.json --watchAll --coverage"
   },
   "bin": {
     "most-common-color": "src/mostCommonColor.js"
@@ -18,5 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
   }
 }
