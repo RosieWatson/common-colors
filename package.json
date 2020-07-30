@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "most-common-color": "src/main.js"
+    "most-common-color": "src/mostCommonColor.js"
   },
   "keywords": [
     "color",
